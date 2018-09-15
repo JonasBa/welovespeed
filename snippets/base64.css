@@ -1,0 +1,7 @@
+.PrettyBackground {
+  background-image: url('MyPrettyImage.png')
+}
+
+.PrettyBackground {
+  background-image: url('data:image/gif;base64,/9j/4AAQSkZJRgABAQEBL...')
+}

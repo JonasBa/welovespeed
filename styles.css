@@ -1,0 +1,59 @@
+h1, h2, h3, h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+p, span, small, ul {
+  font-family: 'Hind', Arial, sans-serif;
+}
+
+.prism-code * {
+  font-family: Menlo, monospace; 
+}
+
+img:not(.basic) {
+  border-radius: 4px;
+  box-shadow: 0 5px 15px 0 rgba(37, 44, 97, 0.15), 0 2px 4px 0 rgba(93, 100, 148, 0.2);
+}
+
+.subtitle {
+  margin-bottom: 0;
+  font-size: 24px;
+  color: rgb(84, 104, 255)
+}
+
+.subtitle + h1 {
+  margin: 0;
+  font-size: 120px;
+}
+
+.subtitle + h1 + h4 {
+  margin-top: 0;
+  font-size: 30px;
+}
+
+.info {
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  font-weight: 300;
+  text-align: left;
+  padding-left: 120px;
+  margin-bottom: 70px;
+}
+
+.info p {
+  font-size: 24px;
+}
+
+.info p {
+  width: 100%;
+  margin: 0 10px;
+}
+
+.info p:last-child {
+  opacity: .6
+}
