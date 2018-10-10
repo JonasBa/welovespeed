@@ -73,6 +73,7 @@ class IntersectionObserverScrollDetection extends React.Component {
     return (
       <div>
         <div style={{textAlign: 'left'}}>
+            <h2 style={{marginBottom: 0}}>IntersectionObserver</h2>
             <div>Visible: <b>{String(this.state.visible)}</b></div>
             <div>Partialy visible: <b>{String(this.state.intersectionRatio)}</b></div>
           </div>

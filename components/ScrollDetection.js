@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ScrollDetectorContainer = {
-  height: "80vh",
+  height: "70vh",
   overflow: "scroll",
 }
 const ScrollDetectorInnerContainer = {
@@ -61,6 +61,7 @@ class ScrollDetector extends React.Component {
     return (
       <div>
         <div style={{textAlign: 'left'}}>
+          <h2 style={{marginBottom: 0}}>Regular onscroll event</h2>
           <div>Visible: <b>{String(this.state.visible)}</b></div>
           <div>Partialy visible: <b>{String(this.state.partialyVisible)}</b></div>
         </div>

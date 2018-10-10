@@ -70,7 +70,7 @@ export default RelativeLayout
 export default KeyPointLayout
 
 # How we went from
-16seconds to sub second load times on 3G
+16 seconds to sub second load times on 3G
 
 ```notes
 - every engineering story has at least one
@@ -318,19 +318,9 @@ export default RelativeLayout
 
 <img src="assets/brotli_cloudflare.png" height="200" style={{marginTop: VERTICAL_SCALE[2]}}/>
 ---
-export default RelativeLayout
-
-## Chrome coverage tool
-<img src="assets/coverage.png" height="600" style={{marginTop: VERTICAL_SCALE[2]}}/>
-
-```notes
-- No bit is faster than the one not sent
-```
----
 export default KeyPointLayout
 
-# Just because something is small, doesn’t mean it’s actually used at all.
-
+## Just because an asset is small, it doesn’t mean it’s actually used at all.
 ---
 export default RelativeLayout
 
@@ -339,10 +329,6 @@ export default RelativeLayout
 export default RelativeLayout
 
 <Image src="assets/marketing-scripts.gif" width="60vw" height="60vh" />
-
-```notes
-- No bit is faster than the one not sent
-```
 ---
 export default RelativeLayout
 
@@ -355,19 +341,34 @@ export default RelativeLayout
 ---
 export default RelativeLayout
 
+## Chrome coverage tool
+<img src="assets/coverage.png" height="600" style={{marginTop: VERTICAL_SCALE[2]}}/>
+
+```notes
+- No bit is faster than the one not sent
+```
+---
+export default RelativeLayout
+
 ## You will have to fight it!
 
 - Explain the negative impacts on the site
 - Try to ask if anyone even uses them?
+- But there's one thing we all should be doing
 
 ```notes
 - requests, different origins, bloating the page
 - if nobody uses it, safe to remove
 ```
 ---
+export default KeyPointLayout
+
+<h2>Hold your 3rd party providers accountable for the code they ship!</h2>
+---
 export default RelativeLayout
 
 ## A trick to rule them all 
+<span>disclaimer: or at least some of them and you probably won't make friends using it</span>
 ---
 export default RelativeLayout
 
@@ -413,7 +414,7 @@ export default RelativeLayout
 ---
 export default RelativeLayout
 
-## Same load time, faster TTFP
+## Same load time, faster paint
 
 <div style={{
   marginTop: VERTICAL_SCALE["2"],
@@ -441,6 +442,8 @@ export default RelativeLayout
   <div>Kid:         <b>30</b></div>
   <div>Interviewer: <b>30 what?</b></div>
   <div>Kid: <small><i>*long pause*</i></small></div>
+  <div>...</div>
+  <div>Kid: <b>Speed</b></div>
 </TextAlign>
 <img src="assets/speed_kid.png" height="400" style={{marginTop: VERTICAL_SCALE[2]}}/>
 
@@ -500,6 +503,12 @@ export default RelativeLayout
 - vulnerable to replay attacks
 ```
 ---
+export default KeyPointLayout
+
+## Delivery &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;☑️
+## Resource hinting &nbsp;&nbsp;&nbsp;
+
+---
 export default RelativeLayout
 
 ## HTTP/2
@@ -535,40 +544,26 @@ export default RelativeLayout
 ---
 export default RelativeLayout
 
-## But what do we push? 🤔
+## Not everything should be pushed  🤔
 
-<small>*not you javascript*</small>
----
-export default RelativeLayout
-
-## Do not push
-
-- large files
-- javascript
-- images
+<small>*push has some negative impacts*</small>
 
 ```notes
-- those are not render blocking
-- let the browsers prioritize
+- it's better to push less than more
+- Rick Viscomi 1 bad push = 8~10 good pushed
 ```
----
-export default RelativeLayout
-
-## Do push
-
-- critical CSS
-- and in certain cases some fonts
 ---
 export default RelativeLayout
 
 ## But what if...
 - Client has already cached the files
 - Which files and how does the server know?
+
 ---
 export default RelativeLayout
 
 ## Imperfect implementation leads to
-- Wasted bandwidth, time and resources 🗑
+- Wasted resources 🗑
 - Negative impact on page loading ❗️
 
 ```notes
@@ -577,6 +572,15 @@ export default RelativeLayout
 - pushing resources
 - async streams
 - improper implementations will cause congestions
+```
+---
+export default RelativeLayout
+
+## It's better to push less than too much!
+
+```notes
+- those are not render blocking
+- let the browsers prioritize
 ```
 ---
 export default RelativeLayout
@@ -600,7 +604,7 @@ export default RelativeLayout
 ---
 export default RelativeLayout
 
-## Saved ~200ms when loading CSS
+## Saved time to first paint
 
 <img src="assets/push.png" width="500" style={{marginTop: VERTICAL_SCALE[2]}}/>
 ---
@@ -614,21 +618,22 @@ export default KeyPointLayout
 ---
 export default RelativeLayout
 
-## Saving requests
+## Saving wrong requests
+
+```notes
+- going to extremes to save requests
+```
 ---
 export default RelativeLayout
 
-## No impact with HTTP/2
-<div style={{textAlign: 'left'}}>
+## Don't save code you don't need
 
-Split your code
-
-Load what you need
-
-Use bundlers
-</div>
+- Split your code
+- Load only what you need
+- Use bundlers, because they are smart
 
 ```notes
+- Saving requests 
 - no longer a strong impact with htt2p
 - might save some battery life
 - mostly useless
@@ -647,7 +652,6 @@ export default RelativeLayout
 </div>
 
 <img src="assets/base64_car.svg" height="400" />
-
 
 ```notes
 - gzip won't save you
@@ -745,15 +749,32 @@ export default RelativeLayout
 ---
 export default RelativeLayout
 
+## Regular canvas animations
+
+<img src="assets/no_worker.png" width="800" style={{marginTop: VERTICAL_SCALE[2]}}/>
+---
+export default RelativeLayout
+
+## Worker thread animation
+
+<img src="assets/worker.png" width="800" style={{marginTop: VERTICAL_SCALE[2]}}/>
+---
+export default RelativeLayout
+
 ## What about scroll detection?
 ---
 export default RelativeLayout
 
-<ScrollDetection />webp
+<ScrollDetection />
 ---
 export default RelativeLayout
 
 <IntersectionObserverScrollDetection />
+---
+export default KeyPointLayout
+
+## Same thing, observers don't run on the main thread.
+<small>But observer callbacks do!</small>
 ---
 export default RelativeLayout
 
@@ -782,7 +803,7 @@ export default RelativeLayout
 
 ## The goal is
 - Keep the main thread idle 🤫
-- Use the native API without workarounds 🌬
+- Use the native API's without workarounds 🌬
 - Improve runtime performance 🤩
 ---
 export default RelativeLayout
@@ -797,18 +818,6 @@ export default KeyPointLayout
 ---
 export default RelativeLayout
 
-## What was the impact on our users?
----
-export default RelativeLayout
-
-## Impact on our users
-
-- <b>~50% users TTI in 1 second, compared to 15sec</b>
-- <b>1-3 seconds max loading time</b>
-- <b>a big drop in bounce rate</b>
----
-export default RelativeLayout
-
 ## Monitoring regression:
 
 - Sub-site you don't control
@@ -818,7 +827,7 @@ export default RelativeLayout
 
 ## A story about a 5MB couch
 
-<img src="assets/couch.jpg" width="800"/>
+<img src="assets/couch.jpg" width="800" style={{marginTop: VERTICAL_SCALE[2]}}/>
 
 ```notes
 - monitoring pages
@@ -828,26 +837,18 @@ export default RelativeLayout
 ---
 export default RelativeLayout
 
-## Multiple options
-
-- 3rd party services
-- Puppeteer
-
+## What was the impact on our users?
 ---
-export default RelativeLayout
+export default KeyPointLayout
 
-<CodeSurfer
-  title="Example: quick load time test"
-  code={require("!raw-loader!./snippets/puppeteer_loading.js")}
-  lang="js"
-  showNumbers={true}
-  dark={false}
-  steps={[
-    { range: [3, 3] },
-    { range: [5, 9] },
-    { range: [10, 10] },
-  ]}
-/>
+## Impact on our users
+
+<TextAlign>
+  <div style={{fontSize: 42, marginTop: VERTICAL_SCALE[2]}}>faster TTI &nbsp; -> &nbsp; longer session time</div>
+  <div style={{fontSize: 42}}>faster experience &nbsp; -> &nbsp; a drop in bounce rate</div>
+  <div style={{fontSize: 42}}>opinion on the topic &nbsp; -> &nbsp; trust from our users</div>
+  <div style={{textAlign: 'center', fontSize: 120, marginTop: VERTICAL_SCALE[2]}}>💰</div>
+</TextAlign>
 ---
 export default KeyPointLayout
 
